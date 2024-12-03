@@ -1,38 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Sidebar from '../components/Sidebar';
+import Dashboard from '../components/Dashboard';
 
-function HomePage() {
-  const [sheets, setSheets] = useState([]);
+const HomePage = () => {
+  const [titles, setTitles] = useState([]);  // To store the list of sheet titles
+  const [selectedData, setSelectedData] = useState(null);  // To store the selected data
+  const [selectedTitle, setSelectedTitle] = useState("");  // To store the name of selected title
 
-  // Fetch sheet names from the Flask API on initial load
+  // Fetch the available sheet titles from the Flask API
   useEffect(() => {
-    console.log("this ran")
-    axios.get('http://127.0.0.1:5000/api/data')
-      .then((response) => {
-        const sheetNames = Object.keys(response.data);
-        console.log(response.data);
-        setSheets(sheetNames);
+    axios.get('http://127.0.0.1:5000/api/getTableTitles')
+      .then(response => {
+        setTitles(response.data);  // Set the sheet titles in the state
       })
-      .catch((error) => {
-        console.error('Error fetching sheet names:', error);
+      .catch(error => {
+        console.error("There was an error fetching the titles!", error);
       });
   }, []);
 
-  return (
-    <div>
-      <div>testtttt</div>
-      <h1>Excel Sheets</h1>
+  // Handle the selection of a title from the sidebar
+  const handleTitleClick = (title) => {
+    setSelectedTitle(title);  // Set the selected title
+    // Fetch the data associated with the selected title
+    axios.post('http://127.0.0.1:5000/get_table_data', { requestedTitle: title })
+      .then(response => {
+        setSelectedData(response.data);  // Set the data for the selected title
+      })
+      .catch(error => {
+        console.error("There was an error fetching the data!", error);
+      });
+  };
 
-      {/* Display links for each sheet */}
-      <div>
-        {sheets.map((sheet) => (
-          <div key={sheet}>
-            <a href="#">{sheet}</a>
-          </div>
-        ))}
-      </div>
+  return (
+    <div style={{ display: 'flex' }}>
+      {/* Sidebar */}
+      <Sidebar titles={titles} onTitleClick={handleTitleClick} />
+
+      {/* Main Section (Dashboard) */}
+      <Dashboard selectedTitle={selectedTitle} selectedData={selectedData} />
     </div>
   );
-}
+};
 
 export default HomePage;
