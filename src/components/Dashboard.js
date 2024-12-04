@@ -1,14 +1,27 @@
-// Dashboard.js
 import './Dashboard.css';
 import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Chart, Line } from 'react-chartjs-2';
+import {
+    CategoryScale,
+    LinearScale,
+    LineElement,
+    PointElement,
+    LineController,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+
+// Register Chart.js components
+Chart.register(CategoryScale, LinearScale, LineElement, PointElement, LineController, Title, Tooltip, Legend);
 
 const Dashboard = ({ selectedTable }) => {
-    console.log("selectedTable", selectedTable)
+    console.log("selectedTable", selectedTable);
     const [tableData, setTableData] = useState(null);
+
     useEffect(() => {
         if (selectedTable) {
-             console.log("this ran")
+            console.log("this ran");
 
             // Fetch data for the selected table
             fetch('https://mechanical-watch-backend-2d5cbddc674e.herokuapp.com/stat_data/get_daily_deviation', {
@@ -20,12 +33,12 @@ const Dashboard = ({ selectedTable }) => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    setTableData(data);  // Store the fetched data
-                    console.log("debuhgsgsgsg", data)
+                    setTableData(data); // Store the fetched data
+                    console.log("debuhgsgsgsg", data);
                 })
                 .catch((error) => console.error('Error fetching table data:', error));
         }
-    }, [selectedTable]);  // Re-fetch data when the selected table changes
+    }, [selectedTable]); // Re-fetch data when the selected table changes
 
     if (!tableData) {
         return <p>Loading data...</p>;
@@ -33,10 +46,10 @@ const Dashboard = ({ selectedTable }) => {
 
     // Prepare chart data
     const chartData = {
-        labels: tableData.map((row) => row["Day No"]),  // X-axis: Day No
+        labels: tableData.map((row) => row["Day No"]), // X-axis: Day No
         datasets: [
             {
-                label: "Daily Deviation",  // Y-axis: Daily Deviation
+                label: "Daily Deviation", // Y-axis: Daily Deviation
                 data: tableData.map((row) => row["Daily Deviation"]),
                 fill: false,
                 borderColor: "rgba(75,192,192,1)",
@@ -44,10 +57,11 @@ const Dashboard = ({ selectedTable }) => {
             },
         ],
     };
+
     return (
         <div className="dashboard">
             <h2>Dashboard for {selectedTable}</h2>
-    
+
             {/* Flex container for table and chart */}
             <div className="dashboard-content">
                 {/* Table Section */}
@@ -69,7 +83,7 @@ const Dashboard = ({ selectedTable }) => {
                         </tbody>
                     </table>
                 </div>
-    
+
                 {/* Chart Section */}
                 <div className="chart">
                     <Line data={chartData} />
@@ -77,7 +91,6 @@ const Dashboard = ({ selectedTable }) => {
             </div>
         </div>
     );
-    
 };
 
 export default Dashboard;
