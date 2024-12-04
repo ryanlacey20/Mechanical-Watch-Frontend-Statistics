@@ -1,17 +1,19 @@
 import './Dashboard.css';
 import React, { useState, useEffect } from 'react';
-import { Chart, Line } from 'react-chartjs-2';
 import {
-    CategoryScale,
-    LinearScale,
+    Chart as ChartJS,
     LineElement,
     PointElement,
-    LineController,
-    Title,
+    LinearScale,
+    CategoryScale,
     Tooltip,
     Legend,
-} from 'chart.js';
-
+  } from 'chart.js';
+  import { Line } from 'react-chartjs-2';
+  
+  // Register the components
+  ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
+  
 // Register Chart.js components
 Chart.register(CategoryScale, LinearScale, LineElement, PointElement, LineController, Title, Tooltip, Legend);
 
