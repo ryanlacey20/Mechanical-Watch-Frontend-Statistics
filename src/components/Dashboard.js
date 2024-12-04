@@ -11,7 +11,7 @@ const Dashboard = ({ selectedTable }) => {
              console.log("this ran")
 
             // Fetch data for the selected table
-            fetch('http://127.0.0.1:5000/stat_data/get_daily_deviation', {
+            fetch('https://mechanical-watch-backend-2d5cbddc674e.herokuapp.com/get_daily_deviation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
