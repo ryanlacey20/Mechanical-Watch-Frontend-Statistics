@@ -10,7 +10,7 @@ const HomePage = () => {
 
   // Fetch the available sheet titles from the Flask API
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/getTableTitles')
+    axios.get('https://mechanical-watch-backend-2d5cbddc674e.herokuapp.com/api/getTableTitles')
       .then(response => {
         setTitles(response.data);  // Set the sheet titles in the state
       })
@@ -23,7 +23,7 @@ const HomePage = () => {
   const handleTitleClick = (title) => {
     setSelectedTitle(title);  // Set the selected title
     // Fetch the data associated with the selected title
-    axios.post('http://127.0.0.1:5000/get_table_data', { requestedTitle: title })
+    axios.post('https://mechanical-watch-backend-2d5cbddc674e.herokuapp.com/get_table_data', { requestedTitle: title })
       .then(response => {
         setSelectedData(response.data);  // Set the data for the selected title
       })
