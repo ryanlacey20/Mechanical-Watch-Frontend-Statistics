@@ -5,6 +5,8 @@ import {
     LineElement,
     PointElement,
     LinearScale,
+    LineController,
+    Title,
     CategoryScale,
     Tooltip,
     Legend,
@@ -15,7 +17,7 @@ import {
   ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
   
 // Register Chart.js components
-Chart.register(CategoryScale, LinearScale, LineElement, PointElement, LineController, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, LineController, Title, Tooltip, Legend);
 
 const Dashboard = ({ selectedTable }) => {
     console.log("selectedTable", selectedTable);
