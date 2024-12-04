@@ -1,7 +1,7 @@
 // Dashboard.js
+import './Dashboard.css';
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js/auto';
 
 const Dashboard = ({ selectedTable }) => {
     console.log("selectedTable", selectedTable)
@@ -44,37 +44,40 @@ const Dashboard = ({ selectedTable }) => {
             },
         ],
     };
-
     return (
         <div className="dashboard">
             <h2>Dashboard for {selectedTable}</h2>
-            
-            {/* Table displaying the Day No and Daily Deviation values */}
-            <div className="table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Day No</th>
-                            <th>Daily Deviation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {tableData.map((row, index) => (
-                            <tr key={index}>
-                                <td>{row["Day No"]}</td>
-                                <td>{row["Daily Deviation"]}</td>
+    
+            {/* Flex container for table and chart */}
+            <div className="dashboard-content">
+                {/* Table Section */}
+                <div className="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day No</th>
+                                <th>Daily Deviation</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-
-            {/* Line Chart displaying the graph */}
-            <div className="chart">
-                <Line data={chartData} />
+                        </thead>
+                        <tbody>
+                            {tableData.map((row, index) => (
+                                <tr key={index}>
+                                    <td>{row["Day No"]}</td>
+                                    <td>{row["Daily Deviation"]}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+    
+                {/* Chart Section */}
+                <div className="chart">
+                    <Line data={chartData} />
+                </div>
             </div>
         </div>
     );
+    
 };
 
 export default Dashboard;

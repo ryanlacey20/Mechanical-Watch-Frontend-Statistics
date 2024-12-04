@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './Sidebar.css'; // Import the CSS file
 
 const Sidebar = ({ titles, onTitleClick }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleClick = (title, index) => {
+    setActiveIndex(index); // Set the active item
+    onTitleClick(title);   // Trigger the parent click handler
+  };
+
   return (
-    <div style={{
-      width: '200px',
-      background: '#f4f4f4',
-      padding: '10px',
-      height: '100vh',
-      borderRight: '1px solid #ccc'
-    }}>
-      <h3>Sheet Titles</h3>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
+    <div className="sidebar">
+      <h3>Watches</h3>
+      <ul>
         {titles.map((title, index) => (
-          <li key={index} style={{ padding: '8px', cursor: 'pointer' }} onClick={() => onTitleClick(title)}>
+          <li
+            key={index}
+            className={activeIndex === index ? "active" : ""}
+            onClick={() => handleClick(title, index)}
+          >
             {title}
           </li>
         ))}

@@ -38,7 +38,7 @@ const HomePage = () => {
       <Sidebar titles={titles} onTitleClick={handleTitleClick} />
 
       {/* Main Section (Dashboard) */}
-      <Dashboard selectedTitle={selectedTitle} selectedData={selectedData} />
+      <Dashboard selectedTable={selectedTitle} selectedData={selectedData} />
     </div>
   );
 };

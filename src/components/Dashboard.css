@@ -1,0 +1,186 @@
+/* Dashboard container styling */
+.dashboard {
+    width: 90%;
+    font-family: 'Arial', sans-serif;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Title styling */
+.dashboard h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Flex container for table and chart */
+.dashboard-content {
+    display: flex;
+    justify-content: space-between; /* Space between the table and chart */
+    gap: 20px; /* Add spacing between the table and chart */
+}
+
+/* Table container */
+.table {
+    flex: 1; /* Adjust to share space with the chart */
+    overflow-x: auto;
+    max-height: 500px; /* Limit height for scrolling */
+    overflow-y: auto;
+}
+
+/* Table styling */
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px; /* Smaller font for compact view */
+}
+
+/* Table header */
+.table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Table rows */
+.table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Alternating row colors */
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect for rows */
+.table tr:hover {
+    background-color: #eafaf1;
+}
+
+/* Chart container */
+.chart {
+    flex: 1; /* Adjust to share space with the table */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;/* Dashboard container styling */
+    .dashboard {
+        width: 90%;
+        font-family: 'Arial', sans-serif;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    /* Title styling */
+    .dashboard h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    /* Flex container for table and chart */
+    .dashboard-content {
+        display: flex;
+        justify-content: space-between; /* Space between the table and chart */
+        gap: 20px; /* Add spacing between the table and chart */
+        align-items: flex-start; /* Align the table and chart at the top */
+    }
+    
+    /* Table container */
+    .table {
+        flex: 0.4; /* Reduce the space taken by the table */
+        max-width: 400px; /* Set a max width for the table container */
+        overflow-x: auto;
+        max-height: 500px; /* Limit height for scrolling */
+        overflow-y: auto;
+    }
+    
+    /* Table styling */
+    .table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px; /* Smaller font for compact view */
+    }
+    
+    /* Table header */
+    .table th {
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    /* Table rows */
+    .table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+    
+    /* Alternating row colors */
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    /* Hover effect for rows */
+    .table tr:hover {
+        background-color: #eafaf1;
+    }
+    
+    /* Chart container */
+    .chart {
+        flex: 0.6; /* Allow the chart to take more space */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Scrollbar styling */
+    .table::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .table::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 4px;
+    }
+    
+    .table::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+    
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollbar styling */
+.table::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.table::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}

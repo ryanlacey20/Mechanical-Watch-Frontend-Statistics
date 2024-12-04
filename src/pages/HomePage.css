@@ -1,48 +1,58 @@
+/* Container styling for the HomePage */
 .homepage {
-    display: flex;
-    height: 100vh;
+  display: flex;
+  min-height: 100vh; /* Full viewport height */
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Sidebar section styling */
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  border-right: 1px solid #ccc;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content section styling */
+.dashboard {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Title of the dashboard */
+.dashboard h2 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .homepage {
+      flex-direction: column;
   }
-  
+
   .sidebar {
-    width: 20%;
-    background-color: #f4f4f4;
-    border-right: 1px solid #ccc;
-    padding: 20px;
-    box-sizing: border-box;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ccc;
   }
-  
-  .sidebar h3 {
-    margin-bottom: 20px;
+
+  .dashboard {
+      padding: 10px;
   }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 5px;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #ddd;
-  }
-  
-  .sidebar ul li.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .main-section {
-    flex-grow: 1;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .main-section h2 {
-    margin-bottom: 20px;
-  }
-  
+}

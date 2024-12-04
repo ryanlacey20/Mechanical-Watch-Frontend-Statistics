@@ -1,0 +1,60 @@
+/* Sidebar container styling */
+.sidebar {
+    width: 200px;
+    background: #f4f4f4;
+    padding: 15px;
+    height: 100vh;
+    border-right: 1px solid #ccc;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Sidebar header styling */
+.sidebar h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+/* List styling */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* List item styling */
+.sidebar li {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    background: #eaeaea;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Hover effect for list items */
+.sidebar li:hover {
+    background: #d4d4d4;
+    transform: translateX(5px);
+    color: #000;
+}
+
+/* Active list item */
+.sidebar li.active {
+    background: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    font-weight: bold;
+    border: 1px solid #0056b3; /* Optional border for emphasis */
+}
+
+/* Smooth transition for active state */
+.sidebar li.active:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
